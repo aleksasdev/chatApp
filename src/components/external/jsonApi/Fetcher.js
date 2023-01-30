@@ -4,6 +4,15 @@ export default class Fetcher{
       this.id = id;
    }
 
+   async get(){
+      const response = await fetch(this.url, {
+         method: "GET",
+      })
+         .then(response => response.json())
+
+      return response;
+   }
+
    async post(body){
       const response = await fetch(this.url, {
          method: "POST",

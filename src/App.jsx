@@ -1,8 +1,8 @@
-import { Navbar } from 'components/main/Navbar';
+import { Navbar } from '@/components/main/Navbar';
 import { Route, Routes } from 'react-router-dom';
-import { UserProvider } from 'contexts/UserProvider';
-import { Login } from 'components/authentication/Login';
-import 'components/main/common.css';
+import { UserProvider } from '@/contexts/UserProvider';
+import { Login } from '@/components/authentication/Login';
+import '@/components/main/common.css';
 
 function App() {
 

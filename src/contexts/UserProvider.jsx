@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 export const UserContext = React.createContext();
+export const USERS_ROUTE = "/users";
 
 export const UserProvider = (props) => {
 
