@@ -2,19 +2,20 @@ import { ValidationForm } from 'components/external/validationForm/ValidationFor
 import { ValidInput } from 'components/external/validationForm/ValidInput'
 import React from 'react'
 import { MINIMUM_LENGTH_8 } from 'components/external/validationForm/requirements';
-import { Error } from 'components/api/error/Error';
+import { DefaultContext } from './../../contexts/DefaultProvider';
+import { useContext } from 'react';
 
 export const Login = () => {
+
+   const { setError } = useContext(DefaultContext);
 
    const handleLogin = (values) =>{
       const [username, password, repeatPassword] = values;
 
       const isPasswordMatch = password === repeatPassword;
       if(!isPasswordMatch){
-         console.log("aa")
-         return (
-            <Error errorMessage={"Passwords don't match"} />
-         )
+         setError("Passwords don't match!");
+         return;
       }
    }
 

@@ -1,14 +1,17 @@
 import React from 'react'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import './error.css';
+import { DefaultContext } from './../../../contexts/DefaultProvider';
+
+
 
 export const Error = ({ errorMessage }) => {
 
-   const [displayError, setDisplayError] = useState(true);
+   const { setError } = useContext(DefaultContext);
 
    const deleteError = async () =>{
       await new Promise(r => setTimeout(r, 2000));
-      setDisplayError(false);
+      setError(null);
    }
 
    useEffect(()=>{
@@ -16,15 +19,8 @@ export const Error = ({ errorMessage }) => {
    }, [])
 
    return (
-      <>
-      {displayError
-      ?
-         <div className='error-container'>
-            <p>{errorMessage}</p>
-         </div>
-      :
-         null
-      }
-      </>
+      <div className='error-container'>
+         <p>{errorMessage}</p>
+      </div>
    )
 }
