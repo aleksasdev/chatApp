@@ -1,0 +1,7 @@
+.error-container{
+   position: absolute;
+   background-color: var(--color-primary-shade);
+   padding: 1.5rem;
+   border-radius: 5px;
+   border: 1px solid wheat;
+}
