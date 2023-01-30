@@ -1,8 +1,8 @@
-import { ValidationForm } from 'components/validationForm/ValidationForm'
-import { ValidInput } from 'components/validationForm/ValidInput'
+import { ValidationForm } from 'components/external/validationForm/ValidationForm'
+import { ValidInput } from 'components/external/validationForm/ValidInput'
 import React from 'react'
-import { MINIMUM_LENGTH_8 } from './../validationForm/requirements';
-import { Error } from './../api/error/Error';
+import { MINIMUM_LENGTH_8 } from 'components/external/validationForm/requirements';
+import { Error } from 'components/api/error/Error';
 
 export const Login = () => {
 
