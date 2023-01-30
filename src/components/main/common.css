@@ -1,0 +1,13 @@
+*{
+   margin: 0;
+   box-sizing: border-box;
+   color: var(--color-text);
+}
+
+:root{
+   --color-primary: #36393f;
+   --color-primary-tint: #40444b;
+   --color-primary-shade: #292b2f;
+
+   --color-text: #ccd0cf;
+}
