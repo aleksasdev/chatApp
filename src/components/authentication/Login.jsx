@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { USERS_ROUTE } from '@/contexts/UserProvider';
 import Fetcher from '@/components/external/jsonApi/Fetcher';
 import { MINIMUM_LENGTH_8 } from '@aleksasdev/validation-form';
+import './authentication.css'
 
 export const Login = () => {
 
@@ -31,13 +32,15 @@ export const Login = () => {
    }
 
    return (
-      <ValidationForm onCompleted={handleLogin} label="Login" >
-         <p>Username</p>
-         <ValidInput name="username" />
-         <p>Password</p>
-         <ValidInput name="password" requirements={MINIMUM_LENGTH_8} />
-         {/* <p>Repeat Password</p>
-         <ValidInput name="repeatPassword" requirements={MINIMUM_LENGTH_8} /> */}
-      </ValidationForm>
+      <section id="login">
+         <ValidationForm className="login-form" onCompleted={handleLogin} label="Login" >
+            <p>Username</p>
+            <ValidInput name="username" />
+            <p>Password</p>
+            <ValidInput name="password" requirements={MINIMUM_LENGTH_8} />
+            <p>Repeat Password</p>
+            <ValidInput name="repeatPassword" requirements={MINIMUM_LENGTH_8} />
+         </ValidationForm>
+      </section>
    )
 }
