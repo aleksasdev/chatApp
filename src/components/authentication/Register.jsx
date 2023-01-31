@@ -8,7 +8,7 @@ import { MINIMUM_LENGTH_8 } from '@aleksasdev/validation-form';
 import './authentication.css'
 import { Fetcher } from '@aleksasdev/json-api';
 import { useNavigate } from 'react-router-dom';
-import { nanoid } from 'nanoid';
+import { registerUser } from './authentication';
 
 export const Register = () => {
 
@@ -16,20 +16,19 @@ export const Register = () => {
    const navigator = useNavigate();
 
    const handleRegister = async (values) =>{
-      const [username, password, repeatPassword, profileUrl] = values;
+      const [username, password, repeatPassword, avatarUrl] = values;
 
       if(password !== repeatPassword){
          setError("Passwords don't match");
          return;
       }
       
-      const userTemplate = USER_TEMPLATE;
-      userTemplate.id = nanoid();
-      userTemplate.userame = username;
-      userTemplate.password = password;
-      userTemplate.avatarUrl = profileUrl;
+      registerUser({
+         username,
+         password,
+         avatarUrl
+      })
 
-      new Fetcher(DATABASE_URL+USERS_ROUTE).post(userTemplate);
       navigator("/chat");
    }
 
