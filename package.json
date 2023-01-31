@@ -10,6 +10,7 @@
     "serve": "concurrently \"npm run dev\" \"json-server --watch src/data/data.json --port 5000"
   },
   "dependencies": {
+    "@aleksasdev/validation-form": "^0.0.0",
     "concurrently": "^7.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
