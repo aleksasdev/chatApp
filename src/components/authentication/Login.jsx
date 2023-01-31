@@ -32,7 +32,7 @@ export const Login = () => {
 
    return (
       <section id="login">
-         <ValidationForm className="login-form" onCompleted={handleLogin} label="Login" >
+         <ValidationForm onCompleted={handleLogin} label="Login" >
             <p>Username</p>
             <ValidInput name="username" />
             <p>Password</p>
