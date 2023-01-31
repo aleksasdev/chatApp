@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 
 export const UserContext = React.createContext();
 export const USERS_ROUTE = "/users";
@@ -13,6 +14,14 @@ export const USER_TEMPLATE = {
 export const UserProvider = (props) => {
 
    const [user, setUser] = useState(null);
+
+   const handleRememberMe = async () =>{
+
+   }
+
+   useEffect(()=>{
+      handleRememberMe();
+   }, [])
 
    return (
       <UserContext.Provider value={{

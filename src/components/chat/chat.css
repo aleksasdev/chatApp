@@ -1,0 +1,26 @@
+#chat{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+#chat .chat-container{
+   width: 90%;
+   height: 90%;
+   background-color: var(--color-primary);
+   border-radius: 5px;
+   display: flex;
+   border: 2px solid var(--color-primary-tint);
+}
+
+#chat .friends-container{
+   width: 15rem;
+   background-color: var(--color-primary-tint);
+}
+#chat .friends-container .user-info-container{
+}
+
+#chat .messages-container{
+   flex: 4;
+   background-color: var(--color-primary-shade);
+}

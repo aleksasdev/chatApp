@@ -5,6 +5,7 @@
 }
 
 section{
+   background-color: var(--color-primary-shade);
    height: 100%;
 }
 
