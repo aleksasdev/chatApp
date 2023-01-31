@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react';
 import { Error } from './../components/api/error/Error';
 
 export const DefaultContext = React.createContext();
-export const DATABASE_URL = "http://localhost:3000";
+export const DATABASE_URL = "http://localhost:5000";
 
 export const DefaultProvider = (props) => {
 

@@ -4,31 +4,30 @@ import React from 'react'
 import { DATABASE_URL, DefaultContext } from './../../contexts/DefaultProvider';
 import { useContext } from 'react';
 import { USERS_ROUTE } from '@/contexts/UserProvider';
-import Fetcher from '@/components/external/jsonApi/Fetcher';
 import { MINIMUM_LENGTH_8 } from '@aleksasdev/validation-form';
 import './authentication.css'
+import { Fetcher } from '@aleksasdev/json-api';
 
 export const Login = () => {
 
    const { setError } = useContext(DefaultContext);
 
    const handleLogin = async (values) =>{
-      const [username, password, repeatPassword] = values;
+      const [username, password] = values;
 
-      console.log(values)
-      console.log(password)
-      console.log(repeatPassword)
+      const allUsers = await new Fetcher(DATABASE_URL+USERS_ROUTE).get();
 
-      const isPasswordMatch = password === repeatPassword;
-      if(!isPasswordMatch){
-         setError("Passwords don't match!");
+      const isUsernameValid = allUsers.find(user => user.username === username);
+      if(!isUsernameValid){
+         setError("Username doesn't exist");
          return;
       }
 
-      const allUsers = await new Fetcher(DATABASE_URL+USERS_ROUTE).get();
-      console.log(allUsers)
-
-      // const isUsernameTaken = 
+      const isPasswordValid = allUsers.find(user => user.password === password);
+      if(!isPasswordValid){
+         setError("Password is wrong!");
+         return;
+      }
    }
 
    return (
@@ -38,8 +37,6 @@ export const Login = () => {
             <ValidInput name="username" />
             <p>Password</p>
             <ValidInput name="password" requirements={MINIMUM_LENGTH_8} />
-            <p>Repeat Password</p>
-            <ValidInput name="repeatPassword" requirements={MINIMUM_LENGTH_8} />
          </ValidationForm>
       </section>
    )
