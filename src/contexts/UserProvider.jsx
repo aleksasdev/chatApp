@@ -1,22 +1,33 @@
+import { Fetcher } from '@aleksasdev/json-api';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
+import { DATABASE_URL } from '@/contexts/DefaultProvider';
+import { loginUser } from '@/components/authentication/authentication';
 
 export const UserContext = React.createContext();
 export const USERS_ROUTE = "/users";
-
-export const USER_TEMPLATE = {
-   id: null,
-   userame: null,
-   password: null,
-   avatarUrl: null
-}
 
 export const UserProvider = (props) => {
 
    const [user, setUser] = useState(null);
 
    const handleRememberMe = async () =>{
+      const allUsers = await new Fetcher(DATABASE_URL+USERS_ROUTE).get();
 
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+
+      const currentUser = allUsers.find(user => user.username === username);
+      const isPasswordMatch = currentUser?.password === password;
+
+      if(!isPasswordMatch) return;
+
+      loginUser({
+         id: currentUser.id,
+         username: username,
+         avatarUrl: currentUser.avatarUrl,
+         setUser
+      });
    }
 
    useEffect(()=>{

@@ -2,3 +2,9 @@
    height: 100%;
    background-color: transparent;
 }
+
+#login .remember-me-container{
+   display: flex;
+   align-items: flex-end;
+   gap: 0.5rem;
+}

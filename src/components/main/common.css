@@ -14,3 +14,9 @@
 
    --color-text: #ccd0cf;
 }
+
+.checkbox-style{
+   width: 1rem;
+   height: 1rem;
+   accent-color: var(--color-primary-shade);
+}

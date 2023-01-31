@@ -7,7 +7,6 @@ import { USERS_ROUTE } from '@/contexts/UserProvider';
 import { MINIMUM_LENGTH_8 } from '@aleksasdev/validation-form';
 import './authentication.css'
 import { Fetcher } from '@aleksasdev/json-api';
-import { USER_TEMPLATE } from '@/contexts/UserProvider';
 import { useNavigate } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
