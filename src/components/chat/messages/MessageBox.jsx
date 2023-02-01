@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { MessagesContext } from '@/contexts/MessagesProvider';
+import { nanoid } from 'nanoid';
+import { Message } from './Message';
 
 export const MessageBox = () => {
 
@@ -12,10 +14,7 @@ export const MessageBox = () => {
    return (
       <div className='message-box'>
          {publicMessages &&
-            publicMessages.map(entry => {
-               console.log(entry)
-               return <div className="">{entry.message}</div>
-            })
+            publicMessages.map(entry => <Message messageObject={entry} key={nanoid()} />)
          }
       </div>
    )

@@ -26,6 +26,8 @@ export const MessagesProvider = (props) => {
       const messageObject = {
          id: nanoid(),
          ownerId: user.userId,
+         ownerAvatarUrl: user.avatarUrl,
+         ownerName: user.username,
          message,
          date,
          reactions: []
