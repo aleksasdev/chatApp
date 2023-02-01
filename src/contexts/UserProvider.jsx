@@ -1,11 +1,10 @@
 import { Fetcher } from '@aleksasdev/json-api';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { DATABASE_URL } from '@/contexts/DefaultProvider';
 import { loginUser } from '@/components/authentication/authentication';
+import { DATABASE_URL, USERS_ROUTE } from '@/constants/general';
 
 export const UserContext = React.createContext();
-export const USERS_ROUTE = "/users";
 
 export const UserProvider = (props) => {
 

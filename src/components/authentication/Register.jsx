@@ -1,12 +1,10 @@
 import { ValidationForm } from '@aleksasdev/validation-form'
 import { ValidInput } from '@aleksasdev/validation-form'
 import React from 'react'
-import { DATABASE_URL, DefaultContext } from '@/contexts/DefaultProvider';
+import { DefaultContext } from '@/contexts/DefaultProvider';
 import { useContext } from 'react';
-import { USERS_ROUTE } from '@/contexts/UserProvider';
 import { MINIMUM_LENGTH_8 } from '@aleksasdev/validation-form';
 import './authentication.css'
-import { Fetcher } from '@aleksasdev/json-api';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from './authentication';
 

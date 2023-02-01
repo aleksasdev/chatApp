@@ -1,7 +1,6 @@
 import { Fetcher } from '@aleksasdev/json-api';
 import { nanoid } from 'nanoid';
-import { DATABASE_URL } from '@/contexts/DefaultProvider';
-import { USERS_ROUTE } from '@/contexts/UserProvider';
+import { DATABASE_URL, USERS_ROUTE } from '@/constants/general';
 
 export function registerUser({ username, password, avatarUrl }){
    new Fetcher(DATABASE_URL+USERS_ROUTE).post({

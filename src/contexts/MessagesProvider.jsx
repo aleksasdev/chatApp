@@ -1,13 +1,14 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { Fetcher } from '@aleksasdev/json-api';
-import { DATABASE_URL } from '@/contexts/DefaultProvider';
+import { UserContext } from './UserProvider';
+import { nanoid } from 'nanoid';
+import { DATABASE_URL, PUBLIC_MESSAGES_ROUTE } from '@/constants/general';
 
 export const MessagesContext = createContext();
 
-export const PUBLIC_MESSAGES_ROUTE = "/publicMessages";
-
 export const MessagesProvider = (props) => {
 
+   const { user } = useContext(UserContext);
    const [publicMessages, setPublicMessages] = useState(null);
 
    const fetchPublicMessages = async () =>{
@@ -15,10 +16,27 @@ export const MessagesProvider = (props) => {
       setPublicMessages(allPublicMessages);
    }
 
+   const sendPublicMessage = async (message) =>{
+      
+      console.log(user)
+
+      const messageObject = {
+         id: nanoid(),
+         ownerId: user.id,
+         date: new Date().toLocaleString("lt-LT")
+      }
+
+      console.log(messageObject);
+
+      // await new Fetcher(DATABASE_URL+PUBLIC_MESSAGES_ROUTE).post({
+
+      // })
+   }
+
    return (
       <MessagesContext.Provider value={{
          publicMessages, setPublicMessages,
-
+         sendPublicMessage,
          fetchPublicMessages
       }}>
          {props.children}

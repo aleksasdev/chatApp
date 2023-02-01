@@ -1,15 +1,15 @@
 import { ValidationForm } from '@aleksasdev/validation-form'
 import { ValidInput } from '@aleksasdev/validation-form'
 import React from 'react'
-import { DATABASE_URL, DefaultContext } from './../../contexts/DefaultProvider';
+import { DefaultContext } from './../../contexts/DefaultProvider';
 import { useContext, useState } from 'react';
-import { USERS_ROUTE } from '@/contexts/UserProvider';
 import { MINIMUM_LENGTH_8 } from '@aleksasdev/validation-form';
 import './authentication.css'
 import { Fetcher } from '@aleksasdev/json-api';
 import { UserContext } from './../../contexts/UserProvider';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from './authentication';
+import { DATABASE_URL, USERS_ROUTE } from '@/constants/general';
 
 export const Login = () => {
 
@@ -43,7 +43,6 @@ export const Login = () => {
          setError("Password is wrong!");
          return;
       }
-
 
       saveUserLoginInformation(username, currentUserDetails.password);
       loginUser({
