@@ -6,6 +6,7 @@ import '@/components/main/common.css';
 import { Register } from './components/authentication/Register';
 import { Chat } from './components/chat/Chat';
 import { Logout } from './components/authentication/Logout';
+import { MessagesProvider } from './contexts/MessagesProvider';
 
 function App() {
 
@@ -19,7 +20,11 @@ function App() {
                <Route path="/login" element={<Login />} />
                <Route path="/register" element={<Register />} />
                <Route path="/logout" element={<Logout />} />
-               <Route path="/chat" element={<Chat />} />
+               <Route path="/chat" element={
+                  <MessagesProvider>
+                     <Chat />
+                  </MessagesProvider>
+               } />
             </Route>
          </Routes>
       </UserProvider>

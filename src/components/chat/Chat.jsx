@@ -1,11 +1,16 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './chat.css'
 import { UserContext } from './../../contexts/UserProvider';
+import { MessagesContext } from './../../contexts/MessagesProvider';
 
 export const Chat = () => {
 
    const { user } = useContext(UserContext);
-   console.log(user)
+   const { fetchPublicMessages, publicMessages } = useContext(MessagesContext);
+
+   useEffect(()=>{
+      fetchPublicMessages();
+   }, [])
 
    return (
       <section id="chat">
@@ -23,7 +28,12 @@ export const Chat = () => {
                   }
                </div>
             </div>
-            <div className="messages-container"></div>
+
+            <div className="messages-container">
+               {publicMessages &&
+                  console.log(publicMessages)
+               }
+            </div>
          </div>
       </section>
    )
