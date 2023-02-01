@@ -7,8 +7,13 @@ import { Register } from './components/authentication/Register';
 import { Chat } from './components/chat/Chat';
 import { Logout } from './components/authentication/Logout';
 import { MessagesProvider } from './contexts/MessagesProvider';
+import { useContext } from 'react';
+import { DefaultContext } from './contexts/DefaultProvider';
+import { Error } from './components/api/error/Error';
 
 function App() {
+
+   const { error } = useContext(DefaultContext);
 
    return (
       <>
@@ -28,6 +33,8 @@ function App() {
             </Route>
          </Routes>
       </UserProvider>
+
+      {error && <Error />}
       </>
    );
 }

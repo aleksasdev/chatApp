@@ -1,7 +1,14 @@
 .error-container{
    position: absolute;
    background-color: var(--color-primary-shade);
-   padding: 1.5rem;
+   padding: 2rem;
    border-radius: 5px;
    border: 1px solid wheat;
+   animation: floatUp 2s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+   0% { transform: translateY(0px); }
+   50%  { transform: translateY(-15px); }
+   100%   { transform: translateY(-0px); }   
 }
