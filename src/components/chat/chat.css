@@ -14,11 +14,34 @@
 }
 
 #chat .friends-container{
+   display: flex;
+   flex-direction: column;
    width: 15rem;
    background-color: var(--color-primary-tint);
+   position: relative;
 }
+
 #chat .friends-container .user-info-container{
+   position: absolute;
+   bottom: 0;
+   padding: 0.4rem;
 }
+
+#chat .friends-container .user-details-wrapper img{
+   width: 3.5rem;
+   height: 3.5rem;
+   border-radius: 50%;
+   object-fit: cover;
+}
+#chat .friends-container .user-details-wrapper{
+   display: flex;
+   gap: 0.4rem;
+}
+#chat .friends-container .username{
+   padding: 0.2rem;
+   color: white;
+}
+
 
 #chat .messages-container{
    flex: 4;
