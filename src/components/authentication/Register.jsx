@@ -7,6 +7,8 @@ import { MINIMUM_LENGTH_8 } from '@aleksasdev/validation-form';
 import './authentication.css'
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from './authentication';
+import { Fetcher } from '@aleksasdev/json-api';
+import { DATABASE_URL, USERS_ROUTE } from '@/constants/general';
 
 export const Register = () => {
 
@@ -18,6 +20,13 @@ export const Register = () => {
 
       if(password !== repeatPassword){
          setError("Passwords don't match");
+         return;
+      }
+
+      const allUsers = await new Fetcher(DATABASE_URL+USERS_ROUTE).get();
+      const isUsernameTaken = allUsers.find(user => user.username === username);
+      if(isUsernameTaken){
+         setError("Username is already taken");
          return;
       }
       
