@@ -18,19 +18,21 @@ export const MessagesProvider = (props) => {
 
    const sendPublicMessage = async (message) =>{
       
-      console.log(user)
+      let date = new Date().toLocaleTimeString('lt-LT', 
+      {
+         year: 'numeric', month: 'numeric', hour: '2-digit', minute:'2-digit'
+      });
 
       const messageObject = {
          id: nanoid(),
-         ownerId: user.id,
-         date: new Date().toLocaleString("lt-LT")
+         ownerId: user.userId,
+         message,
+         date,
+         reactions: []
       }
 
-      console.log(messageObject);
-
-      // await new Fetcher(DATABASE_URL+PUBLIC_MESSAGES_ROUTE).post({
-
-      // })
+      await new Fetcher(DATABASE_URL+PUBLIC_MESSAGES_ROUTE).post(messageObject)
+      setPublicMessages(current => [...current, messageObject]);
    }
 
    return (

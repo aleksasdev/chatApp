@@ -46,7 +46,7 @@ export const Login = () => {
 
       saveUserLoginInformation(username, currentUserDetails.password);
       loginUser({
-         id: currentUserDetails.id,
+         userId: currentUserDetails.id,
          username: username,
          avatarUrl: currentUserDetails.avatarUrl,
          setUser

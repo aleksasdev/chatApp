@@ -22,7 +22,7 @@ export const UserProvider = (props) => {
       if(!isPasswordMatch) return;
 
       loginUser({
-         id: currentUser.id,
+         userId: currentUser.id,
          username: username,
          avatarUrl: currentUser.avatarUrl,
          setUser
