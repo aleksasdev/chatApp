@@ -12,6 +12,12 @@
    --color-primary-tint: #40444b;
    --color-primary-shade: #292b2f;
 
+   --color-secondary: #292b2f;
+   --color-secondary-tint: #2f3136;
+
+   --color-third: #36393f;
+   --color-third-tint: #40444b;
+
    --color-text: #ccd0cf;
 }
 

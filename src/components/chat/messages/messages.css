@@ -1,0 +1,28 @@
+#chat .messages-container{
+   flex: 1;
+   background-color: var(--color-third);
+   display: flex;
+   flex-direction: column;
+}
+
+#chat .message-box{
+   display: flex;
+   width: 100%;
+   height: 100%;
+}
+
+#chat .send-message-container{
+   display: flex;
+   padding: var(--chat-padding-top) 1.5rem;
+   background-color: var(--color-third);
+   align-items: center;
+}
+#chat .send-message-container input{
+   width: 100%;
+   background-color: var(--color-third-tint);
+   border: none;
+   outline: none;
+   padding: 0.7rem;
+   border-radius: 10px;
+   height: 2.7rem;
+}

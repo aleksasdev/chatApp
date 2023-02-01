@@ -1,7 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import './chat.css'
+import './messages/messages.css'
 import { UserContext } from './../../contexts/UserProvider';
 import { MessagesContext } from './../../contexts/MessagesProvider';
+import { MessageInput } from './messages/MessageInput';
+import { MessageBox } from './messages/MessageBox';
 
 export const Chat = () => {
 
@@ -16,7 +19,10 @@ export const Chat = () => {
       <section id="chat">
          <div className="chat-container">
             <div className="friends-container">
-               <div className="user-info-container">
+
+            </div>
+
+            <div className="user-info-container">
                   {user
                   ?
                      <div className="user-details-wrapper">
@@ -27,13 +33,19 @@ export const Chat = () => {
                      <p>Please login</p>
                   }
                </div>
-            </div>
 
             <div className="messages-container">
-               {publicMessages &&
-                  console.log(publicMessages)
-               }
+               <MessageBox />
             </div>
+
+            <div className="send-message-container">
+                  {user
+                  ?
+                     <MessageInput />
+                  :
+                     <p>Please login to send messages</p>   
+                  }
+               </div>
          </div>
       </section>
    )
